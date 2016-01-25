@@ -1,0 +1,20 @@
+_chasecar = _this select 0
+_leadcar = _this select 1
+
+#chase
+group _chasecar move (getpos _leadcar)
+
+#loop
+group _chasecar setspeedmode "FULL"
+group _chasecar setbehaviour "AWARE"
+
+? {alive _x} count units group _chasecar < 1 : goto "exit"
+//? _chasecar distance _leadcar < 10 : _leadcar setfuel 0; goto "exit"
+? not isengineOn _leadcar : goto "exit"
+
+? unitReady _chasecar : goto "chase"
+goto "loop"
+
+#exit
+
+exit

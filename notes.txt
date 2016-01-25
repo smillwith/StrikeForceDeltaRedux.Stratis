@@ -1,0 +1,80 @@
+getAllTurrets [truck1, true];
+
+truck1 enablePersonTurret [[0], true];
+truck1 enablePersonTurret [[1], true];
+
+i_chaser2 assignAsCargoIndex [truck1, 1];
+i_chaser3 assignAsCargoIndex [truck1, 2];
+
+i_chaser2 moveInCargo [truck1, 1];
+i_chaser3 moveInCargo [truck1, 2];
+
+i_chaser2 assignAsTurret [truck1, [2]]; 
+i_chaser3 assignAsTurret [truck1, [3]]; 
+
+
+unit assignAsTurret [vehicle, [turretPath]];
+this moveInCargo [truck1, 3];
+i_chaser2 assignAsTurret [truck1, [0]];
+
+---
+
+--working!
+targetlight1 = [0,0,0] nearestObject 48240;
+targetlight1 setHit ["light_1_hitpoint", 0.97];
+
+
+----
+
+nearestObjects?
+
+//??
+{format ['_tmpss = %1', '48240'];} forEach [0]; hint formatText["%1", _tmpss];  b_g_scout1 doTarget tmpss; b_g_scout1 commandFire _tmpss;
+{format ['tmpss = %1', '1'];} forEach [0]; hint formatText["%1", tmpss];  b_g_scout1 doTarget tmpss; b_g_scout1 commandFire tmpss; 
+
+
+//Supposed to put the object into tmp
+{format ['tmp = %1', '48240'];} forEach [0]; hint formatText["%1", tmp];
+
+
+//Kinda works
+targetlight1 = [0,0,0] nearestObject 48240;
+b_g_scout1 doTarget targetlight1;
+b_g_scout1 commandFire targetlight1;
+
+//but right now, it doesn't show up in the list of active targets after i tell him to do target
+
+
+//alternate if 'shoot doesn't work
+i_enemy7 action ["useweapon", vehicle i_enemy7, i_enemy7, 0];
+
+
+--------------------------------------------
+
+//Moves them in and puts them in the right spots
+i_chaser2 moveInTurret [truck1, [2]];
+i_chaser3 moveInTurret [truck1, [3]];
+
+
+//They still get out in combat though
+
+
+//Moves them in and assigns them. Not sure what impact this has though
+i_chaser2 assignAsTurret [truck1, [2]];  i_chaser2 moveInCargo [truck1, 3];
+i_chaser3 assignAsTurret [truck1, [3]];  i_chaser3 moveInCargo [truck1, 4];
+
+
+//Locked doesn't seem to do anything
+//TurretUnit returns the correct unit which makes me think they are assigned properly. They do shoot but then they get out!
+i_chaser2 assignAsTurret [truck1, [2]];  i_chaser2 moveInCargo [truck1, 3]; i_chaser3 assignAsTurret [truck1, [3]];  i_chaser3 moveInCargo [truck1, 4]; truck1 setVehicleLock "LOCKED";
+
+
+
+i_chaser2 assignAsTurret [truck1, [2]];
+i_chaser2 moveInCargo [truck1, 3];
+
+i_chaser3 assignAsTurret [truck1, [3]];
+i_chaser3 moveInCargo [truck1, 4]; 
+
+//This the key
+truck1 setUnloadInCombat [FALSE,FALSE];
