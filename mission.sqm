@@ -386,6 +386,9 @@ class Mission
 					class Effects
 					{
 					};
+					timeoutMin=6;
+					timeoutMid=6;
+					timeoutMax=6;
 					showWP="NEVER";
 				};
 				class Item4
@@ -416,7 +419,7 @@ class Mission
 				};
 				class Item6
 				{
-					position[]={4350.7041,177.35677,4354.4189};
+					position[]={4351.6978,177.35001,4360.0293};
 					class Effects
 					{
 					};
@@ -424,7 +427,7 @@ class Mission
 				};
 				class Item7
 				{
-					position[]={4327.4731,177.24861,4372.6675};
+					position[]={4327.8833,177.24461,4371.083};
 					class Effects
 					{
 					};
@@ -1618,7 +1621,7 @@ class Mission
 				items=1;
 				class Item0
 				{
-					presence=0.13542102;
+					presence=0.49783659;
 					position[]={4355.645,177.36998,4348.0083};
 					azimut=221.785;
 					offsetY=4;
@@ -2263,7 +2266,7 @@ class Mission
 				items=1;
 				class Item0
 				{
-					position[]={2636.406,117.29865,4890.8394};
+					position[]={2627.5334,112.49789,4881.2524};
 					azimut=-92.490158;
 					class args
 					{
@@ -2282,7 +2285,7 @@ class Mission
 					lock="UNLOCKED";
 					skill=0.60000002;
 					syncId=13;
-					synchronizations[]={11};
+					synchronizations[]={11,22};
 				};
 			};
 		};
@@ -2384,7 +2387,7 @@ class Mission
 					speed="FULL";
 					combat="COMBAT";
 					expActiv="i_chaser3 action [""TurnOut"", vehicle i_chaser3]; i_chaser2 action [""TurnOut"", vehicle i_chaser2];  truck1 setUnloadInCombat [FALSE,FALSE];";
-					synchronizations[]={22};
+					synchronizations[]={23};
 					class Effects
 					{
 					};
@@ -3865,8 +3868,11 @@ class Mission
 			position[]={2601.0366,109.39173,4895.8579};
 			a=5;
 			b=5;
-			angle=-92.490158;
+			angle=-92.490196;
 			activationBy="WEST";
+			timeoutMin=5;
+			timeoutMid=5;
+			timeoutMax=5;
 			interruptable=1;
 			type="END1";
 			age="UNKNOWN";
@@ -4052,6 +4058,8 @@ class Mission
 			class Effects
 			{
 			};
+			synchronizations[]={13};
+			syncId=22;
 		};
 		class Item21
 		{
@@ -4064,7 +4072,7 @@ class Mission
 			{
 			};
 			synchronizations[]={16};
-			syncId=22;
+			syncId=23;
 		};
 		class Item22
 		{
